@@ -1,0 +1,51 @@
+extends layout
+
+block content
+    header.w3-container.w3-margin
+        h1 #{team._id}
+
+        div
+            b
+                a(href=`/adicionarMember/${team._id}`) Adicionar
+
+        b guid: 
+        | #{team.guid}
+        br
+        b team: 
+        | #{team.team}
+        br
+        b pitch1: 
+        | #{team.pitch1}
+        br
+        b pitch2: 
+        | #{team.pitch2}
+        br
+        b techPitch: 
+        | #{team.techPitch}
+        br
+        b businessReport: 
+        | #{team.businessReport}
+        br
+        b techReport: 
+        | #{team.techReport}
+        br
+        b members:
+        br
+        each p in team.members
+            .w3-container.w3-margin
+                b id: 
+                | #{p.id}
+                br
+                b name: 
+                | #{p.name}
+                br
+                b course: 
+                | #{p.course}
+                br
+                b scores: 
+                | #{p.scores}
+
+    footer.w3-container
+        address.w3-right
+            a(href="/") 
+                button.w3-button.w3-margin Voltar

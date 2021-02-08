@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<pr>
+    <meta>
+        <key>DAW2020:Recurso</key>
+        <title>Recurso DAW 2021</title>
+        <bdate>2021-02-08</bdate>
+        <edate>2021-02-08</edate>
+        <supervisor url="http://www.di.uminho.pt/~jcr">
+            José Carlos Ramalho
+        </supervisor>
+    </meta>
+    <team>
+        <member id="A82582">
+            <name>Gonçalo Esteves</name>
+            <email>a85731@alunos.uminho.pt</email>
+            <link url="https://github.com/Komatsu52"/>
+        </member>
+    </team>
+    <abstract>
+
+        <p>
+           Exercício 1: mongoimport -d PEI2020 -c teams --jsonArray PEI-teams.json
+        </p>
+        <p>
+           Exercício 2: resultados em dataset/mongo.txt
+        </p>
+        <p>
+           Exercício 3: Porta a consultar: 8000
+        </p>
+        <p>
+           Exercício 4: Porta a consultar: 8001
+        </p>
+      
+    </abstract>
+    <deliverables>
+        <link url="/api-server"> Servidor da API de dados </link>
+        <link url="/app-server"> Servidor da interface </link>
+        <link url="/dataset"> Informações relativas aos dados </link>
+        <link url="/PR.xml"> Project Record </link>
+    </deliverables>
+</pr>

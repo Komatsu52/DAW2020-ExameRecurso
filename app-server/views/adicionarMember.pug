@@ -1,0 +1,28 @@
+extends layout
+
+block content
+  center
+    .w3-container.w3-margin
+        header.w3-container.w3-margin-top
+            h3 
+                b Registo de Member
+            
+            .w3-container
+                form.w3-container(action=`/team/${team}` method="POST")         
+                    label
+                        b id
+                        input.w3-input.w3-border(type="text", name="id" required)
+                    label
+                        b Name
+                        input.w3-input.w3-border(type="text", name="name" required)
+                    label
+                        b Course
+                        input.w3-input.w3-border(type="text", name="course" required)   
+
+                    input.w3-btn.w3-border.w3-margin(type="submit", value="Inserir")
+                    input.w3-btn.w3-border.w3-margin(type="reset", value="Limpar valores")
+
+        footer.w3-container
+            address.w3-right
+                a(href=`/${team}`) 
+                    button.w3-button.w3-margin Voltar

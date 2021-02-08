@@ -1,0 +1,58 @@
+//[1 val.] Quantas equipes existem na base de dados? (resultado = inteiro)
+db.teams.find().count()
+
+//[1 val.] Quais as equipes? (lista com os nomes das equipes ordenada alfabeticamente)
+db.teams.distinct("team").sort()
+
+//[1 val.] Quantos alunos existem catalogados na base de dados? (resultado = inteiro)
+db.teams.aggregate([
+                    {"$unwind": "$members"},
+                    {"$group": {
+                        _id: "",
+                        "quantos": {"$sum":1}}
+                    },
+                    {"$project": {
+                        _id: 0,
+                        "quantos": 1}
+                    }
+])
+
+//[1 val.] Quais os alunos? (lista de pares com os números de identificação e nomes dos alunos ordenada alfabeticamente por nome)
+db.teams.aggregate([
+                    {"$unwind": "$members"},
+                    {"$project": {
+                        _id: 0,
+                        "numero": "$members.id",
+                        "nome": "$members.name"}
+                    }
+])
+
+
+//[0.5 val.] Quantos alunos do MIEI existem catalogados na base de dados? (resultado = inteiro)
+db.teams.aggregate([
+                    {"$unwind": "$members"},
+                    {"$match": {"members.course": "MIEI"}},
+                    {"$group": {
+                        _id: "",
+                        "quantos": {"$sum":1}}
+                    },
+                    {"$project": {
+                        _id: 0,
+                        "quantos": 1}
+                    }
+])
+
+//[0.5 val.] Quantos membros tem cada equipe? (resultado = lista de pares, nome da equipe e número de elementos na equipe, ordenada alfabeticamente por nome da equipe )
+db.teams.aggregate([
+                    {"$unwind": "$members"},
+                    {"$group": {
+                        _id: "$team",
+                        "quantos": {"$sum":1}}
+                    },
+                    {"$project": {
+                        _id: 0,
+                        "team": "$_id",
+                        "quantos": 1}
+                    },
+                    { $sort : { "team" : 1 } }
+])

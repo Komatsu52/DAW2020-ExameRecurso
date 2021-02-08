@@ -1,0 +1,40 @@
+extends layout
+
+block content
+  center
+    .w3-container.w3-margin
+        header.w3-container.w3-margin-top
+            h3 
+                b Registo de Team
+            
+            .w3-container
+                form.w3-container(action='/team' method="POST")
+                    label
+                        b Id
+                        input.w3-input.w3-border(type="text", name="_id" required)
+                    label
+                        b Team
+                        input.w3-input.w3-border(type="text", name="team" required)
+                    label
+                        b Pitch 1
+                        input.w3-input.w3-border(type="checkbox", name="pitch1") 
+                    label
+                        b Pitch 2
+                        input.w3-input.w3-border(type="checkbox", name="pitch2") 
+                    label
+                        b Tech Pitch
+                        input.w3-input.w3-border(type="checkbox", name="techPitch") 
+                    label
+                        b Business Report
+                        input.w3-input.w3-border(type="checkbox", name="businessReport") 
+                    label
+                        b Tech Report
+                        input.w3-input.w3-border(type="checkbox", name="techReport") 
+
+                    input.w3-btn.w3-border.w3-margin(type="submit", value="Inserir")
+                    input.w3-btn.w3-border.w3-margin(type="reset", value="Limpar valores")
+
+        footer.w3-container
+            address.w3-right
+                a(href="/") 
+                    button.w3-button.w3-margin Voltar

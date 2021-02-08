@@ -1,0 +1,34 @@
+extends layout
+
+block content
+  .w3-container.w3-margin
+    table.w3-table-all
+      h1 Listas de Teams
+
+      div
+        b
+          a(href=`/adicionarTeam`) Adicionar
+    
+      tr
+        th Id
+        th Team
+        th Pitch 1
+        th Pitch 2
+        th Tech Pitch
+        th Business Report
+        th Tech Report
+        th Number of Members
+        th
+      each l in teams
+        tr
+          th 
+            a(href=`/${l._id}`) #{l._id}
+          th #{l.team}
+          th #{l.pitch1}
+          th #{l.pitch2}
+          th #{l.techPitch}
+          th #{l.businessReport}
+          th #{l.techReport}
+          th #{l.members.length}
+          th
+            a(href=`/remover/${l._id}`) Remover
