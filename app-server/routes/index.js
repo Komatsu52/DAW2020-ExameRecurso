@@ -44,8 +44,8 @@ router.post('/team', function(req, res, next) {
 /* POST adicionar member */
 router.post('/team/:id', function(req, res, next) {
   console.log(JSON.stringify(req.body))
-	axios.post('http://localhost:8000/api/teams/' + req.params.id + '?token=' + req.cookies.token, req.body)
-		.then(dados => res.redirect('/'))
+	axios.post('http://localhost:8000/api/teams/' + req.params.id + '/members?token=' + req.cookies.token, req.body)
+		.then(dados => res.redirect('/' + req.params.id))
 		.catch(erro => res.render('error', {error: erro}))
 })
 

@@ -44,6 +44,7 @@ router.get('/teams/:id', function(req, res, next) {
 
 
 router.post('/teams/:id/members', function(req, res, next) {
+	console.log(JSON.stringify(req.body))
 	Teams.insertMember(req.params.id, req.body)
 		.then(dados => {
       res.jsonp(dados)
@@ -52,6 +53,7 @@ router.post('/teams/:id/members', function(req, res, next) {
 });
 
 router.post('/teams', function(req, res, next) {
+	console.log(JSON.stringify(req.body))
 	Teams.insert(req.body)
 		.then(dados => {
       //dados.data.nmembers = dados.data.members.length
